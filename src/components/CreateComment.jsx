@@ -40,49 +40,41 @@ const CreateComment = ({ setPostData }) => {
 
   return (
     <>
-      <Container className="text-center">
+      <Container className="text-center my-5">
         <h5>Write a comment:</h5>
         <Form
-          style={{ maxWidth: '28rem' }}
+          style={{ maxWidth: '25rem' }}
           className="m-auto"
           onSubmit={handleSubmit}
         >
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm={2}>
-              Username
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                type="text"
-                placeholder="Username"
-                name="username"
-                value={username}
-                onChange={handleOnChange}
-              />
-            </Col>
+          <Form.Group className="mb-1">
+            <Form.Label htmlFor="username">Username</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              name="username"
+              id="username"
+              value={username}
+              onChange={handleOnChange}
+            />
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm={2}>
-              Comment
-            </Form.Label>
-            <Col sm={10}>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                type="text"
-                placeholder="Comment"
-                name="text"
-                value={text}
-                onChange={handleOnChange}
-              />
-            </Col>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="comment">Comment</Form.Label>
+            <Form.Control
+              as="textarea"
+              rows={3}
+              type="text"
+              placeholder="Comment"
+              name="text"
+              id="comment"
+              value={text}
+              onChange={handleOnChange}
+            />
           </Form.Group>
-          <Form.Group as={Row} className="mb-3">
-            <Col>
-              <Button variant="dark" type="submit">
-                Submit
-              </Button>
-            </Col>
+          <Form.Group className="mb-1">
+            <Button variant="dark" type="submit">
+              Submit
+            </Button>
           </Form.Group>
         </Form>
       </Container>

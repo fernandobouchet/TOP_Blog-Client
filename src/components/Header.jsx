@@ -1,13 +1,16 @@
 const Header = () => {
   return (
-    <header className="container">
+    <header
+      className="container"
+      style={{
+        minHeight: '5rem',
+      }}
+    >
       <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <h1>Blog</h1>
+        <h1 style={{ fontSize: 'calc(2rem + 1.5vw)', fontWeight: '900' }}>
+          Blog.
+        </h1>
       </a>
-      <p>
-        This is a blog created as a full-stack app, part of the TOP
-        assignaments.
-      </p>
     </header>
   );
 };

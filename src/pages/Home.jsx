@@ -15,9 +15,9 @@ const Home = () => {
   }, []);
 
   return (
-    <Container>
+    <>
       {posts ? (
-        <Container>
+        <Container style={{ flex: '1' }}>
           <div className="py-4">
             <PostMain post={posts[0]} />
           </div>
@@ -32,7 +32,7 @@ const Home = () => {
       ) : (
         <Loading />
       )}
-    </Container>
+    </>
   );
 };
 
