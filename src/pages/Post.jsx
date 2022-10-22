@@ -2,6 +2,9 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import postService from '../features/postService';
 import { Container } from 'react-bootstrap';
+import Comment from '../components/Comment';
+import CreateComment from '../components/CreateComment';
+import Loading from '../components/Loading';
 
 const Post = () => {
   const { id } = useParams();
@@ -10,22 +13,32 @@ const Post = () => {
 
   useEffect(() => {
     postService.getPostById(id).then((post) => {
-      setPostData(post);
+      setTimeout(() => {
+        setPostData(post);
+      }, 500);
     });
   }, []);
 
   return (
     <>
-      {post && (
-        <Container>
-          <h1>{post.title}</h1>
-          <p>{post.text}</p>
-          <div>
-            {post.messages.map((message) => (
-              <p>{message.text}</p>
+      {post ? (
+        <>
+          <Container className="text-center">
+            <h1>{post.title}</h1>
+            <p>{post.text}</p>
+          </Container>
+          <Container className="text-center">
+            <h5>Comments ({post.messages.length}):</h5>
+            {post.messages.map((comment, index) => (
+              <Comment key={comment.id || index} comment={comment} />
             ))}
-          </div>
-        </Container>
+          </Container>
+          <Container>
+            <CreateComment setPostData={setPostData} />
+          </Container>
+        </>
+      ) : (
+        <Loading />
       )}
     </>
   );

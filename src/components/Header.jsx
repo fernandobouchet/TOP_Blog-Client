@@ -1,7 +1,9 @@
 const Header = () => {
   return (
     <header className="container">
-      <h1>Blog</h1>
+      <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+        <h1>Blog</h1>
+      </a>
       <p>
         This is a blog created as a full-stack app, part of the TOP
         assignaments.
