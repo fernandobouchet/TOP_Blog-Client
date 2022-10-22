@@ -10,6 +10,10 @@ const Header = () => {
         <h1 style={{ fontSize: 'calc(2rem + 1.5vw)', fontWeight: '900' }}>
           Blog.
         </h1>
+        <p>
+          This is a blog created as a full-stack app, part of the TOP projects
+          to learn MERN stack.
+        </p>
       </a>
     </header>
   );

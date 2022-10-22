@@ -40,8 +40,8 @@ const CreateComment = ({ setPostData }) => {
 
   return (
     <>
-      <Container className="text-center my-5">
-        <h5>Write a comment:</h5>
+      <Container className="text-center mb-5">
+        <h5>Send a comment:</h5>
         <Form
           style={{ maxWidth: '25rem' }}
           className="m-auto"
@@ -73,7 +73,7 @@ const CreateComment = ({ setPostData }) => {
           </Form.Group>
           <Form.Group className="mb-1">
             <Button variant="dark" type="submit">
-              Submit
+              Send
             </Button>
           </Form.Group>
         </Form>

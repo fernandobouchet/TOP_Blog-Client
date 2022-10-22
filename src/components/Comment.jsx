@@ -14,7 +14,7 @@ const Comment = ({ comment }) => {
               {comment.date_formatted ? comment.date_formatted : 'Just now'}
             </span>
           </div>
-          <p className="card-text text-start">{comment.text}</p>
+          <p className="card-text text-start mt-2">{comment.text}</p>
         </Card.Body>
       </Card>
     </>

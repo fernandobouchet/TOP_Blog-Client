@@ -35,6 +35,7 @@ const Post = () => {
               <Comment key={comment.id || index} comment={comment} />
             ))}
           </Container>
+          <Divider />
           <Container>
             <CreateComment setPostData={setPostData} />
           </Container>
