@@ -1,18 +1,21 @@
+import { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Post from '../components/Post';
 import PostMain from '../components/PostMain';
+import postService from '../features/postService';
 
-const Home = ({ posts }) => {
+const Home = () => {
+  const [posts, setPosts] = useState();
+
+  useEffect(() => {
+    postService.getPosts().then((posts) => {
+      setPosts(posts);
+    });
+  }, []);
+
   return (
     <Container>
-      <header className="container">
-        <h1>Blog</h1>
-        <p>
-          This is a blog created as a full-stack app, part of the TOP
-          assignaments.
-        </p>
-      </header>
-      {posts.length !== 0 && (
+      {posts && (
         <Container>
           <div className="py-4">
             <PostMain post={posts[0]} />

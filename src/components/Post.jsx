@@ -7,11 +7,14 @@ const Post = ({ data }) => {
       <Card>
         <Card.Body>
           <Card.Title>{data.title}</Card.Title>
-          <Card.Text>{data.text}</Card.Text>
+          <Card.Text className="text-truncate">{data.text}</Card.Text>
           <Button as={Link} to={`post/${data._id}`} variant="primary">
             Read
           </Button>
         </Card.Body>
+        <Card.Footer className="text-muted">
+          Date:{data.date_formatted}
+        </Card.Footer>
       </Card>
     </>
   );

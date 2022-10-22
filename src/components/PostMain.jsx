@@ -5,15 +5,16 @@ const PostMain = ({ post }) => {
   return (
     <>
       <Card className="text-center">
-        <Card.Header>Latest</Card.Header>
         <Card.Body>
           <Card.Title>{post.title}</Card.Title>
-          <Card.Text>{post.text}</Card.Text>
+          <Card.Text className="text-truncate">{post.text}</Card.Text>
           <Button as={Link} to={`post/${post._id}`} variant="primary">
             Read
           </Button>
         </Card.Body>
-        <Card.Footer className="text-muted">{post.date}</Card.Footer>
+        <Card.Footer className="text-muted">
+          Date:{post.date_formatted}
+        </Card.Footer>
       </Card>
     </>
   );

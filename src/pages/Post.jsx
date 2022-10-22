@@ -6,20 +6,25 @@ import { Container } from 'react-bootstrap';
 const Post = () => {
   const { id } = useParams();
 
-  const [post, setPost] = useState([]);
+  const [post, setPostData] = useState();
 
   useEffect(() => {
     postService.getPostById(id).then((post) => {
-      setPost(post);
+      setPostData(post);
     });
   }, []);
 
   return (
     <>
-      {post.length !== 0 && (
+      {post && (
         <Container>
           <h1>{post.title}</h1>
           <p>{post.text}</p>
+          <div>
+            {post.messages.map((message) => (
+              <p>{message.text}</p>
+            ))}
+          </div>
         </Container>
       )}
     </>
