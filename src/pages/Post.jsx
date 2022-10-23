@@ -23,8 +23,8 @@ const Post = () => {
   return (
     <>
       {post ? (
-        <>
-          <Container className="text-center" style={{ flex: '1' }}>
+        <Container style={{ flex: '1' }}>
+          <Container className="text-center">
             <h1>{post.title}</h1>
             <p>{post.text}</p>
           </Container>
@@ -39,7 +39,7 @@ const Post = () => {
           <Container>
             <CreateComment setPostData={setPostData} />
           </Container>
-        </>
+        </Container>
       ) : (
         <Loading />
       )}
