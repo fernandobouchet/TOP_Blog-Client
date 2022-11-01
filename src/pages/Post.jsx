@@ -6,6 +6,7 @@ import Comment from '../components/Comment';
 import CreateComment from '../components/CreateComment';
 import Loading from '../components/Loading';
 import Divider from '../components/Divider';
+import arrayBufferToBase64 from '../helpers/functions';
 
 const Post = () => {
   const { id } = useParams();
@@ -26,6 +27,12 @@ const Post = () => {
         <Container style={{ flex: '1' }}>
           <Container className="text-center">
             <h1>{post.title}</h1>
+            <img
+              src={`data:image/png;base64,${arrayBufferToBase64(
+                post.image.data.data
+              )}`}
+              alt="Post image"
+            />
             <p>{post.text}</p>
           </Container>
           <Divider />

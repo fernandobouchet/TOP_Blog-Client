@@ -21,7 +21,7 @@ const Home = () => {
           <div className="py-4">
             <PostMain post={posts[0]} />
           </div>
-          <Row xs={1} md={2} className="g-4">
+          <Row xs={1} md={3} className="g-4 pb-5">
             {posts.slice(1).map((post) => (
               <Col key={post.id}>
                 <Post data={post} />
