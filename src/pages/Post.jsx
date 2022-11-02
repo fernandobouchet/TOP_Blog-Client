@@ -36,6 +36,7 @@ const Post = () => {
               )}`}
               alt="Post image"
               width={'100%'}
+              style={{ borderRadius: '5px' }}
             />
             <p id="post-text">{post.text}</p>
           </Container>
