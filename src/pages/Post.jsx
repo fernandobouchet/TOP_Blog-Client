@@ -25,15 +25,19 @@ const Post = () => {
     <>
       {post ? (
         <Container style={{ flex: '1' }}>
-          <Container className="text-center">
+          <Container id="post-content" className="text-center">
             <h1>{post.title}</h1>
+            <p className="text-muted text-start">
+              {post.author} | {post.date_formatted}
+            </p>
             <img
               src={`data:image/png;base64,${arrayBufferToBase64(
                 post.image.data.data
               )}`}
               alt="Post image"
+              width={'100%'}
             />
-            <p>{post.text}</p>
+            <p id="post-text">{post.text}</p>
           </Container>
           <Divider />
           <Container className="text-center">

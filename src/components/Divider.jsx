@@ -6,7 +6,7 @@ const Divider = () => {
       <Container
         style={{
           margin: '1.5rem auto',
-          borderBottom: '1px solid rgba(0, 0, 0, 0.175)',
+          borderBottom: '1px solid #343a40',
         }}
       ></Container>
     </>

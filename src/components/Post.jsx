@@ -13,7 +13,7 @@ const Post = ({ data }) => {
           width="100px"
         ></Card.Img>
         <Card.Body>
-          <Card.Title>{data.title}</Card.Title>{' '}
+          <Card.Title className="text-center">{data.title}</Card.Title>
           <Card.Text className="text-truncate">{data.text}</Card.Text>
           <Card.Text className="mb-2 text-muted">
             By {data.author} | {data.date_formatted}

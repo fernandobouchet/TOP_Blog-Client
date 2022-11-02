@@ -72,7 +72,7 @@ const CreateComment = ({ setPostData }) => {
             />
           </Form.Group>
           <Form.Group className="mb-1">
-            <Button variant="dark" type="submit">
+            <Button variant="primary" type="submit">
               Send
             </Button>
           </Form.Group>
