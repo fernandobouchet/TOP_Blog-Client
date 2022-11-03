@@ -7,7 +7,10 @@ const Header = () => {
       }}
     >
       <a href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-        <h1 style={{ fontSize: 'calc(2rem + 1.5vw)', fontWeight: '900' }}>
+        <h1
+          className="py-3"
+          style={{ fontSize: 'calc(2rem + 1.5vw)', fontWeight: '900' }}
+        >
           Blog.
         </h1>
         <p>
