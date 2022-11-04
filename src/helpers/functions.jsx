@@ -8,4 +8,8 @@ const arrayBufferToBase64 = (buffer) => {
   return window.btoa(binary);
 };
 
-export default arrayBufferToBase64;
+const hasThisError = (errors, inputName) => {
+  return errors.find((err) => err.param === inputName);
+};
+
+export { arrayBufferToBase64, hasThisError };

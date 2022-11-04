@@ -6,7 +6,7 @@ import Comment from '../components/Comment';
 import CreateComment from '../components/CreateComment';
 import Loading from '../components/Loading';
 import Divider from '../components/Divider';
-import arrayBufferToBase64 from '../helpers/functions';
+import { arrayBufferToBase64 } from '../helpers/functions';
 
 const Post = () => {
   const { id } = useParams();
@@ -15,9 +15,7 @@ const Post = () => {
 
   useEffect(() => {
     postService.getPostById(id).then((post) => {
-      setTimeout(() => {
-        setPostData(post);
-      }, 500);
+      setPostData(post);
     });
   }, []);
 
@@ -49,7 +47,7 @@ const Post = () => {
           </Container>
           <Divider />
           <Container>
-            <CreateComment setPostData={setPostData} />
+            <CreateComment postId={id} setPostData={setPostData} />
           </Container>
         </Container>
       ) : (

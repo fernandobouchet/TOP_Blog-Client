@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
-import arrayBufferToBase64 from '../helpers/functions';
+import { Card } from 'react-bootstrap';
+import { arrayBufferToBase64 } from '../helpers/functions';
 
 const PostMain = ({ post }) => {
   return (

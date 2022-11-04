@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { Container, Form, Button, Row, Col } from 'react-bootstrap';
+import { Container, Form, Button, Row, Col, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import commentService from '../features/commentService';
+import { hasThisError } from '../helpers/functions';
 
-const CreateComment = ({ setPostData }) => {
-  const { id } = useParams();
-
+const CreateComment = ({ postId, setPostData }) => {
   const [formData, setFormData] = useState({
-    postId: id,
+    postId: postId,
     username: '',
     text: '',
   });
+  const [errors, setErrors] = useState(null);
 
   const { username, text } = formData;
 
@@ -21,18 +21,24 @@ const CreateComment = ({ setPostData }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const sendMessage = await commentService.sendComment(formData);
+    if (sendMessage.status === 400) {
+      setErrors(sendMessage.data.errors);
+      return;
+    }
+    setErrors(null);
     setPostData((prevState) => ({
       ...prevState,
       messages: [...prevState.messages, formData],
     }));
-    commentService.sendComment(formData);
     clearSubmit();
   };
 
   const clearSubmit = () => {
     setFormData({
+      postId: postId,
       username: '',
       text: '',
     });
@@ -58,6 +64,13 @@ const CreateComment = ({ setPostData }) => {
               onChange={handleOnChange}
             />
           </Form.Group>
+          {errors && hasThisError(errors, 'username') && (
+            <>
+              <Alert variant="danger">
+                {hasThisError(errors, 'username').msg}
+              </Alert>
+            </>
+          )}
           <Form.Group className="mb-3">
             <Form.Label htmlFor="comment">Comment</Form.Label>
             <Form.Control
@@ -71,6 +84,11 @@ const CreateComment = ({ setPostData }) => {
               onChange={handleOnChange}
             />
           </Form.Group>
+          {errors && hasThisError(errors, 'text') && (
+            <>
+              <Alert variant="danger">{hasThisError(errors, 'text').msg}</Alert>
+            </>
+          )}
           <Form.Group className="mb-1">
             <Button variant="primary" type="submit">
               Send

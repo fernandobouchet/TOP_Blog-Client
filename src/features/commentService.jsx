@@ -6,12 +6,17 @@ const sendComment = async (data) => {
   try {
     const result = await axios.post(`${API_URL}/message`, data);
     if (result.status === 200) {
-      return result.data;
+      console.log(result);
+      return result;
     } else {
       console.log('Unknow error');
     }
   } catch (error) {
-    console.log(error);
+    if (error.response.status === 400) {
+      return error.response;
+    } else {
+      console.log(error);
+    }
   }
 };
 
