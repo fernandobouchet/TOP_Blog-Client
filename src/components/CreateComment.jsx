@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Container, Form, Button, Row, Col, Alert } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Container, Form, Button } from 'react-bootstrap';
 import commentService from '../features/commentService';
-import { hasThisError } from '../helpers/functions';
+import { getErrorMessage } from '../helpers/functions';
 
 const CreateComment = ({ postId, setPostData }) => {
   const [formData, setFormData] = useState({
@@ -49,6 +48,7 @@ const CreateComment = ({ postId, setPostData }) => {
       <Container className="text-center mb-5">
         <h5>Send a comment:</h5>
         <Form
+          noValidate
           style={{ maxWidth: '25rem' }}
           className="m-auto"
           onSubmit={handleSubmit}
@@ -62,15 +62,12 @@ const CreateComment = ({ postId, setPostData }) => {
               id="username"
               value={username}
               onChange={handleOnChange}
+              isInvalid={getErrorMessage(errors, 'username')}
             />
+            <Form.Control.Feedback type="invalid">
+              {getErrorMessage(errors, 'username')}
+            </Form.Control.Feedback>
           </Form.Group>
-          {errors && hasThisError(errors, 'username') && (
-            <>
-              <Alert variant="danger">
-                {hasThisError(errors, 'username').msg}
-              </Alert>
-            </>
-          )}
           <Form.Group className="mb-3">
             <Form.Label htmlFor="comment">Comment</Form.Label>
             <Form.Control
@@ -82,13 +79,12 @@ const CreateComment = ({ postId, setPostData }) => {
               id="comment"
               value={text}
               onChange={handleOnChange}
+              isInvalid={getErrorMessage(errors, 'text')}
             />
+            <Form.Control.Feedback type="invalid">
+              {getErrorMessage(errors, 'text')}
+            </Form.Control.Feedback>
           </Form.Group>
-          {errors && hasThisError(errors, 'text') && (
-            <>
-              <Alert variant="danger">{hasThisError(errors, 'text').msg}</Alert>
-            </>
-          )}
           <Form.Group className="mb-1">
             <Button variant="primary" type="submit">
               Send

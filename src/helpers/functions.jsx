@@ -8,8 +8,9 @@ const arrayBufferToBase64 = (buffer) => {
   return window.btoa(binary);
 };
 
-const hasThisError = (errors, inputName) => {
-  return errors.find((err) => err.param === inputName);
+const getErrorMessage = (errors, inputName) => {
+  if (errors !== null && errors.find((err) => err.param === inputName))
+    return errors.find((err) => err.param === inputName).msg;
 };
 
-export { arrayBufferToBase64, hasThisError };
+export { arrayBufferToBase64, getErrorMessage };
