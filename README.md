@@ -26,7 +26,7 @@ Its a full-stack web app, a blog where you can read posts and write messages int
 
 ## Screenshots
 
-![App Screenshot](https://github.com/fernandobouchet/TOP_Blog-Client/blob/main/project_preview.png?raw=true)
+![App Screenshot](https://github.com/fernandobouchet/TOP_Blog-Client/blob/main/project_preview.webp?raw=true)
 
 ## Getting started
 
