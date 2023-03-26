@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://blogapi.fly.dev';
+const API_URL = 'https://blogapi-ebfs.onrender.com';
 
 const sendComment = async (data) => {
   try {
